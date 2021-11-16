@@ -11,7 +11,7 @@ import com.example.s205444_lykkehjulet.databinding.FragmentSecondBinding
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class GameActivity : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
 
