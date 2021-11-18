@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">s205444_Lykkehjulet</string>
+    <string name="app_name">Hangman</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -9,6 +9,8 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="start_new_game">Start New Game</string>
+    <string name="game_title">Wheel of Fortune</string>
     <string name="play">Play</string>
-    <string name="hangman">Hangman</string>
+    <string name="spin_wheel">Spin</string>
 </resources>
