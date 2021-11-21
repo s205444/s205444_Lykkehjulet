@@ -9,6 +9,8 @@ sealed class GameState {
         val lives : Int,
         val points : Int,
         val isWheelSpun : Boolean,
+        val fortuneResult : String,
+        val potentialPoints : Int
         ) : GameState()
 
     class Lost(val wordToGuess: String) : GameState()

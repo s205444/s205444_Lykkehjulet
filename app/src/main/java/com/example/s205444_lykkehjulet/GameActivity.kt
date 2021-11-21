@@ -7,12 +7,15 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.children
+import androidx.navigation.findNavController
+import org.w3c.dom.Text
 import kotlin.random.Random
 
 
 class GameActivity : AppCompatActivity() {
 
     private val gameManager = GameManager()
+
 
     private lateinit var wordTextView: TextView
     private lateinit var lettersUsedTextView: TextView
@@ -22,6 +25,8 @@ class GameActivity : AppCompatActivity() {
     private lateinit var newGameButton: Button
     private lateinit var lettersLayout: ConstraintLayout
     private lateinit var spinWheelButton: Button
+    private lateinit var pointsTextView : TextView
+    private lateinit var spinResultsTextView : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +35,12 @@ class GameActivity : AppCompatActivity() {
         lifeView = findViewById(R.id.livesTextView)
         wordTextView = findViewById(R.id.wordTextView)
         lettersUsedTextView = findViewById(R.id.lettersUsedTextView)
-       // gameLostTextView = findViewById(R.id.gameLostTextView)
-       // gameWonTextView = findViewById(R.id.gameWonTextView)
+
         newGameButton = findViewById(R.id.newGameButton)
         lettersLayout = findViewById(R.id.lettersLayout)
+
+        pointsTextView = findViewById(R.id.pointsTextView)
+        spinResultsTextView = findViewById(R.id.spinResultsTextView)
         newGameButton.setOnClickListener {
             startNewGame()
         }
@@ -46,9 +53,18 @@ class GameActivity : AppCompatActivity() {
         lettersLayout.children.forEach { letterView ->
             if (letterView is TextView) {
                 letterView.setOnClickListener {
-                        val gameState = gameManager.play((letterView).text[0])
-                        updateUI(gameState)
-                        letterView.visibility = View.GONE
+                    var gameState = gameManager.getGameState()
+                    when(gameState){
+                        is GameState.Running ->{
+                            if(gameState.isWheelSpun) {
+                                letterView.visibility = View.GONE
+                                gameState = gameManager.play((letterView).text[0])
+                                updateUI(gameState)
+                                gameState = gameManager.setIsWheelSpun()
+                            }
+                        }
+                    }
+
                 }
             }
         }
@@ -60,9 +76,9 @@ class GameActivity : AppCompatActivity() {
             is GameState.Running -> {
                 wordTextView.text = gameState.underscoreWord
                 lettersUsedTextView.text = "Letters used: ${gameState.lettersUsed}"
-                //imageView.setImageDrawable(ContextCompat.getDrawable(this, gameState.drawable))
-
-                lifeView.text = switchEnums()
+                lifeView.text = "Lives: ${gameState.lives}"
+                pointsTextView.text = "Points: ${gameState.points}"
+                spinResultsTextView.text = "You spun: ${gameState.fortuneResult}"
 
             }
             is GameState.Won -> showGameWon(gameState.wordToGuess)
@@ -70,17 +86,8 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun spinWheel(){
-        gameManager.spinWheel()
-    }
-
-    private fun switchEnums() : String {
-        val randomInt = Random.nextInt(EnumFortunes.values().size)
-        when(randomInt){
-            1 -> return EnumFortunes.BANKRUPT.toString()
-            2 -> return EnumFortunes.THOUSAND.toString()
-            else -> return "failed switch"
-        }
-
+        val gameState = gameManager.spinWheel()
+        updateUI(gameState)
     }
 
     private fun showGameLost(wordToGuess: String) {

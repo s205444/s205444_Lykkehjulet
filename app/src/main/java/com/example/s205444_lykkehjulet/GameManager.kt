@@ -12,6 +12,8 @@ class GameManager {
     private var drawable: Int = 1
     private var points: Int = 0
     private var isWheelSpun: Boolean = false
+    private var fortuneText: String = ""
+    private var potentialPoints: Int = 0
 
     fun startNewGame(): GameState {
         lettersUsed = ""
@@ -19,6 +21,8 @@ class GameManager {
         lives = 5
         isWheelSpun = false
         drawable = R.drawable.game7
+        fortuneText = ""
+        potentialPoints = 0
         val randomIndex = Random.nextInt(0, GameConstants.words.size)
         wordToGuess = GameConstants.words[randomIndex]
         generateUnderscores(wordToGuess)
@@ -37,15 +41,55 @@ class GameManager {
         underscoreWord = sb.toString()
     }
 
-    fun spinWheel(){
-        isWheelSpun = false
+    fun spinWheel() : GameState{
+
+        val randomInt = Random.nextInt(EnumFortunes.values().size)
+        val fortune = EnumFortunes.values()[randomInt]
+
+
+
+        when(fortune){
+            EnumFortunes.BANKRUPT -> {
+                points = 0
+                isWheelSpun = false
+                return GameState.Running(lettersUsed,underscoreWord,drawable,lives,points,
+                    false, EnumFortunes.BANKRUPT.displayText, 0)
+            }
+            EnumFortunes.EXTRA_TURN -> {
+                lives += 1
+                isWheelSpun = false
+                return GameState.Running(lettersUsed,underscoreWord,drawable, lives,points,
+                    false,EnumFortunes.EXTRA_TURN.displayText, 0)
+            }
+            EnumFortunes.MISS_TURN -> {
+                lives -= 1
+                isWheelSpun = false
+                return GameState.Running(lettersUsed,underscoreWord,drawable, lives,points,
+                    false,EnumFortunes.MISS_TURN.displayText, 0)
+            }
+            EnumFortunes.HUNDRED -> {
+                potentialPoints = 100
+                isWheelSpun = true
+                return GameState.Running(lettersUsed,underscoreWord,drawable,lives,points,
+                    true, EnumFortunes.HUNDRED.displayText, potentialPoints)
+            }
+            EnumFortunes.THOUSAND -> {
+                potentialPoints = 1000
+                isWheelSpun = true
+                return GameState.Running(lettersUsed,underscoreWord,drawable,lives,points,
+                    true, EnumFortunes.THOUSAND.displayText, potentialPoints)
+            }
+
+            else -> {}
+        }
+        return getGameState()
 
     }
 
     fun play(letter: Char): GameState {
         if (lettersUsed.contains(letter)) {
-            isWheelSpun = false
-            return GameState.Running(lettersUsed, underscoreWord, drawable, lives, points, isWheelSpun)
+            points += potentialPoints
+            return GameState.Running(lettersUsed, underscoreWord, drawable, lives, points, isWheelSpun, fortuneText, potentialPoints)
         }
 
         lettersUsed += letter
@@ -65,11 +109,15 @@ class GameManager {
         }
 
         if (indexes.isEmpty()) {
-            currentTries++
+            lives--
         }
 
         underscoreWord = finalUnderscoreWord
         return getGameState()
+    }
+
+    private fun updatePoints(){
+        points += potentialPoints
     }
 
     private fun getHangmanDrawable(): Int {
@@ -86,16 +134,20 @@ class GameManager {
         }
     }
 
-    private fun getGameState(): GameState {
+    fun getGameState(): GameState {
         if (underscoreWord.equals(wordToGuess, true)) {
             return GameState.Won(wordToGuess)
         }
 
-        if (currentTries == lives) {
+        if ( lives == 0) {
             return GameState.Lost(wordToGuess)
         }
 
         drawable = getHangmanDrawable()
-        return GameState.Running(lettersUsed, underscoreWord, drawable, lives, points, isWheelSpun)
+        return GameState.Running(lettersUsed, underscoreWord, drawable, lives, points, isWheelSpun, fortuneText, potentialPoints)
+    }
+    fun setIsWheelSpun(): GameState{
+        isWheelSpun = false
+        return GameState.Running(lettersUsed, underscoreWord, drawable, lives, points, isWheelSpun, fortuneText, potentialPoints)
     }
 }

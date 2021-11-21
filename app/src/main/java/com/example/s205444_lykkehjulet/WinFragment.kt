@@ -9,10 +9,6 @@ import android.view.ViewGroup
 
 class WinFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = WinFragment()
-    }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
