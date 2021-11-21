@@ -7,13 +7,17 @@ class GameManager {
     private var lettersUsed: String = ""
     private lateinit var underscoreWord: String
     private lateinit var wordToGuess: String
-    private val lives = 5
+    private var lives = 5
     private var currentTries = 0
-    private var drawable: Int = R.drawable.game1
+    private var drawable: Int = 1
+    private var points: Int = 0
+    private var isWheelSpun: Boolean = false
 
     fun startNewGame(): GameState {
         lettersUsed = ""
         currentTries = 0
+        lives = 5
+        isWheelSpun = false
         drawable = R.drawable.game7
         val randomIndex = Random.nextInt(0, GameConstants.words.size)
         wordToGuess = GameConstants.words[randomIndex]
@@ -33,9 +37,15 @@ class GameManager {
         underscoreWord = sb.toString()
     }
 
+    fun spinWheel(){
+        isWheelSpun = false
+
+    }
+
     fun play(letter: Char): GameState {
         if (lettersUsed.contains(letter)) {
-            return GameState.Running(lettersUsed, underscoreWord, drawable)
+            isWheelSpun = false
+            return GameState.Running(lettersUsed, underscoreWord, drawable, lives, points, isWheelSpun)
         }
 
         lettersUsed += letter
@@ -49,7 +59,8 @@ class GameManager {
 
         var finalUnderscoreWord = "" + underscoreWord // _ _ _ _ _ _ _ -> E _ _ _ _ _ _
         indexes.forEach { index ->
-            val sb = StringBuilder(finalUnderscoreWord).also { it.setCharAt(index, letter) }
+            val sb = StringBuilder(finalUnderscoreWord).also {
+                it.setCharAt(index, letter) }
             finalUnderscoreWord = sb.toString()
         }
 
@@ -63,8 +74,8 @@ class GameManager {
 
     private fun getHangmanDrawable(): Int {
         return when (currentTries) {
-            0 -> R.drawable.game1
-            1 -> R.drawable.game1
+            0 -> 0
+            1 -> 1
             2 -> R.drawable.game2
             3 -> R.drawable.game3
             4 -> R.drawable.game4
@@ -85,6 +96,6 @@ class GameManager {
         }
 
         drawable = getHangmanDrawable()
-        return GameState.Running(lettersUsed, underscoreWord, drawable)
+        return GameState.Running(lettersUsed, underscoreWord, drawable, lives, points, isWheelSpun)
     }
 }

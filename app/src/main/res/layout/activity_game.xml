@@ -6,44 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/game0"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/gameLostTextView"
+        android:id="@+id/livesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:rotation="-45"
-        android:text="You Lost!"
-        android:textColor="#BB4444"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        tools:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@id/imageView"
-        app:layout_constraintEnd_toEndOf="@id/imageView"
-        app:layout_constraintStart_toStartOf="@id/imageView"
-        app:layout_constraintTop_toTopOf="@id/imageView" />
+        android:text="number_of_lives"
+        app:layout_constraintBottom_toTopOf="@+id/spinWheelButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lettersUsedTextView"
+        app:layout_constraintVertical_bias="0.565" />
 
     <TextView
-        android:id="@+id/gameWonTextView"
+        android:id="@+id/pointsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:rotation="-45"
-        android:text="You Won!"
-        android:textColor="#44BB44"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/imageView"
-        app:layout_constraintEnd_toEndOf="@id/imageView"
-        app:layout_constraintStart_toStartOf="@id/imageView"
-        app:layout_constraintTop_toTopOf="@id/imageView"
-        tools:visibility="visible" />
+        android:text="number_of_points"
+        app:layout_constraintBottom_toTopOf="@+id/spinWheelButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/livesTextView"
+        app:layout_constraintTop_toBottomOf="@+id/lettersUsedTextView" />
+
+    <TextView
+        android:id="@+id/spinResultsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="you_spun_this"
+        app:layout_constraintBottom_toTopOf="@+id/newGameButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinWheelButton" />
 
     <TextView
         android:id="@+id/wordTextView"
@@ -52,39 +47,29 @@
         android:gravity="center"
         android:letterSpacing="0.3"
         android:textSize="26sp"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
+        tools:layout_editor_absoluteY="137dp"
         tools:text="_ _ ABCD_ _ _ _ _ _ _" />
 
     <TextView
         android:id="@+id/lettersUsedTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/wordTextView"
         tools:text="Used Letters: A, B, C, D, E, F, G" />
 
     <Button
-        android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/spin_wheel"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameLostTextView" />
-
-    <Button
         android:id="@+id/newGameButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:text="@string/start_new_game"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lettersUsedTextView" />
+        app:layout_constraintTop_toBottomOf="@id/lettersUsedTextView"
+        app:layout_constraintVertical_bias="0.29000002" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/lettersLayout"
@@ -364,4 +349,14 @@
             android:textSize="24dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/spinWheelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/spin_wheel"
+        app:layout_constraintBottom_toTopOf="@+id/newGameButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lettersUsedTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
