@@ -95,8 +95,9 @@ class GameFragment : Fragment() {
     }
 
     private fun spinWheel(){
-        val gameState = gameManager.spinWheel()
-        updateUI(gameState)
+    findNavController().navigate(R.id.WinFragment)
+    //val gameState = gameManager.spinWheel()
+        //updateUI(gameState)
     }
 
     private fun showGameLost(wordToGuess: String) {
