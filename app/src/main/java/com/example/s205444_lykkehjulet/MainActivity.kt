@@ -31,14 +31,6 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main)
                 as NavHostFragment
         navController = navHostFragment.navController
-        val playButton: Button = findViewById(R.id.playButton)
-
-        playButton.setOnClickListener {
-            val intent = Intent(this, GameActivity::class.java)
-            startActivity(intent)
-        }
-
-
 
     }
 

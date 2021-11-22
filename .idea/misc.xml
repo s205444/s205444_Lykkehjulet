@@ -4,11 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/skals/AndroidStudioProjects/s205444_Lykkehjulet/app/src/main/res/layout/activity_game.xml" value="0.264" />
-        <entry key="..\:/Users/skals/AndroidStudioProjects/s205444_Lykkehjulet/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/skals/AndroidStudioProjects/s205444_Lykkehjulet/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/skals/AndroidStudioProjects/s205444_Lykkehjulet/app/src/main/res/layout/content_main.xml" value="0.15520833333333334" />
         <entry key="..\:/Users/skals/AndroidStudioProjects/s205444_Lykkehjulet/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/skals/AndroidStudioProjects/s205444_Lykkehjulet/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/skals/AndroidStudioProjects/s205444_Lykkehjulet/app/src/main/res/layout/fragment_win.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/skals/AndroidStudioProjects/s205444_Lykkehjulet/app/src/main/res/layout/win_fragment.xml" value="0.4" />
+        <entry key="..\:/Users/skals/AndroidStudioProjects/s205444_Lykkehjulet/app/src/main/res/layout/game_fragment.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/skals/AndroidStudioProjects/s205444_Lykkehjulet/app/src/main/res/layout/lose_fragment.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/skals/AndroidStudioProjects/s205444_Lykkehjulet/app/src/main/res/layout/win_fragment.xml" value="0.264" />
       </map>
     </option>
   </component>

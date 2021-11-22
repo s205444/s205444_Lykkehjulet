@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.s205444_lykkehjulet.WinFragment"
+        android:name="com.example.s205444_lykkehjulet.GameFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/win_fragment">
+        tools:layout="@layout/activity_game">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
