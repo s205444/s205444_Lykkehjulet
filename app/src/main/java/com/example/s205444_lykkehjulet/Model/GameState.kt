@@ -5,7 +5,6 @@ sealed class GameState {
     class Running(
         val lettersUsed: String,
         val underscoreWord: String,
-        val drawable: Int,
         val lives : Int,
         val points : Int,
         val isWheelSpun : Boolean,

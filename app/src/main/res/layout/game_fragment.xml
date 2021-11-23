@@ -10,7 +10,7 @@
         android:id="@+id/livesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="number_of_lives"
+        android:text="@string/lives"
         app:layout_constraintBottom_toTopOf="@+id/spinWheelButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,7 +22,7 @@
         android:id="@+id/pointsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="number_of_points"
+        android:text="@string/number_of_points"
         app:layout_constraintBottom_toTopOf="@+id/spinWheelButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="you_spun_this"
+        android:text="@string/you_spun_this"
         app:layout_constraintBottom_toTopOf="@+id/newGameButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +47,7 @@
         android:gravity="center"
         android:letterSpacing="0.3"
         android:textSize="26sp"
+        android:text="@string/press_start_new_game_to_play"
         tools:layout_editor_absoluteY="137dp"
         tools:text="_ _ ABCD_ _ _ _ _ _ _" />
 
@@ -58,6 +59,7 @@
         android:gravity="center"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/wordTextView"
+        android:text="@string/used_letters"
         tools:text="Used Letters: A, B, C, D, E, F, G" />
 
     <Button

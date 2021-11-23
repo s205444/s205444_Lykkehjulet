@@ -9,7 +9,7 @@
         android:id="@+id/GameFragment"
         android:name="com.example.s205444_lykkehjulet.Fragments.GameFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/activity_game">
+        tools:layout="@layout/game_fragment">
 
         <action
             android:id="@+id/action_game_to_winFragment"

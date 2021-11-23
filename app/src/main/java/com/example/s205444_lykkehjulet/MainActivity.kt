@@ -37,9 +37,7 @@ class MainActivity : AppCompatActivity() {
     override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onPostCreate(savedInstanceState, persistentState)
 
-        val navController=findNavController(R.id.nav_host_fragment_content_main)
-
-
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
     }
 
 }

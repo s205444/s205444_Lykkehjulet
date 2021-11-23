@@ -8,9 +8,8 @@ class GameManager {
     private var lettersUsed: String = ""
     private lateinit var underscoreWord: String
     private lateinit var wordToGuess: String
-    private var lives = 5
+    private var lives = 1
     private var currentTries = 0
-    private var drawable: Int = 1
     private var points: Int = 0
     private var isWheelSpun: Boolean = false
     private var fortuneText: String = ""
@@ -19,9 +18,8 @@ class GameManager {
     fun startNewGame(): GameState {
         lettersUsed = ""
         currentTries = 0
-        lives = 5
+        lives = 1
         isWheelSpun = false
-        drawable = R.drawable.game7
         fortuneText = ""
         potentialPoints = 0
         val randomIndex = Random.nextInt(0, GameConstants.words.size)
@@ -47,46 +45,43 @@ class GameManager {
         val randomInt = Random.nextInt(EnumFortunes.values().size)
         val fortune = EnumFortunes.values()[randomInt]
 
-
-
         when(fortune){
             EnumFortunes.BANKRUPT -> {
                 points = 0
                 isWheelSpun = false
+                fortuneText = EnumFortunes.BANKRUPT.displayText
                 return GameState.Running(
-                    lettersUsed, underscoreWord, drawable, lives, points,
+                    lettersUsed, underscoreWord, lives, points,
                     false, EnumFortunes.BANKRUPT.displayText, 0
                 )
             }
             EnumFortunes.EXTRA_TURN -> {
                 lives += 1
                 isWheelSpun = false
-                return GameState.Running(
-                    lettersUsed, underscoreWord, drawable, lives, points,
-                    false, EnumFortunes.EXTRA_TURN.displayText, 0
-                )
+                fortuneText = EnumFortunes.EXTRA_TURN.displayText
+                return getGameState()
             }
             EnumFortunes.MISS_TURN -> {
                 lives -= 1
                 isWheelSpun = false
-                return GameState.Running(
-                    lettersUsed, underscoreWord, drawable, lives, points,
-                    false, EnumFortunes.MISS_TURN.displayText, 0
-                )
+                fortuneText = EnumFortunes.MISS_TURN.displayText
+                return getGameState()
             }
             EnumFortunes.HUNDRED -> {
                 potentialPoints = 100
                 isWheelSpun = true
+                fortuneText = EnumFortunes.HUNDRED.displayText
                 return GameState.Running(
-                    lettersUsed, underscoreWord, drawable, lives, points,
+                    lettersUsed, underscoreWord,  lives, points,
                     true, EnumFortunes.HUNDRED.displayText, potentialPoints
                 )
             }
             EnumFortunes.THOUSAND -> {
                 potentialPoints = 1000
                 isWheelSpun = true
+                fortuneText = EnumFortunes.THOUSAND.displayText
                 return GameState.Running(
-                    lettersUsed, underscoreWord, drawable, lives, points,
+                    lettersUsed, underscoreWord, lives, points,
                     true, EnumFortunes.THOUSAND.displayText, potentialPoints
                 )
             }
@@ -103,7 +98,6 @@ class GameManager {
             return GameState.Running(
                 lettersUsed,
                 underscoreWord,
-                drawable,
                 lives,
                 points,
                 isWheelSpun,
@@ -131,7 +125,9 @@ class GameManager {
         if (indexes.isEmpty()) {
             lives--
         }
-
+        if(wordToGuess.contains(letter) || wordToGuess.contains(letter.lowercaseChar())){
+        updatePoints()
+        }
         underscoreWord = finalUnderscoreWord
         return getGameState()
     }
@@ -140,34 +136,21 @@ class GameManager {
         points += potentialPoints
     }
 
-    private fun getHangmanDrawable(): Int {
-        return when (currentTries) {
-            0 -> 0
-            1 -> 1
-            2 -> R.drawable.game2
-            3 -> R.drawable.game3
-            4 -> R.drawable.game4
-            5 -> R.drawable.game5
-            6 -> R.drawable.game6
-            7 -> R.drawable.game7
-            else -> R.drawable.game7
-        }
-    }
+
 
     fun getGameState(): GameState {
         if (underscoreWord.equals(wordToGuess, true)) {
             return GameState.Won(wordToGuess)
         }
 
-        if ( lives == 0) {
+        if (lives == 0) {
             return GameState.Lost(wordToGuess)
         }
 
-        drawable = getHangmanDrawable()
+
         return GameState.Running(
             lettersUsed,
             underscoreWord,
-            drawable,
             lives,
             points,
             isWheelSpun,
@@ -180,7 +163,6 @@ class GameManager {
         return GameState.Running(
             lettersUsed,
             underscoreWord,
-            drawable,
             lives,
             points,
             isWheelSpun,

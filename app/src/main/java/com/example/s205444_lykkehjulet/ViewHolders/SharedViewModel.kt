@@ -74,7 +74,10 @@ class SharedViewModel : ViewModel() {
 
     private fun updateData(gameState: GameState) {
         when (gameState) {
-            is GameState.Lost -> _isGameLost.value = true
+            is GameState.Lost -> {
+                _wordTextView.value = gameState.wordToGuess
+                _isGameLost.value = true
+            }
             is GameState.Running -> {
                 _wordTextView.value = gameState.underscoreWord
                 _lettersUsed.value = gameState.lettersUsed
@@ -83,7 +86,10 @@ class SharedViewModel : ViewModel() {
                 _spinMessage.value = gameState.fortuneResult
                 _isWheelSpun.value = gameState.isWheelSpun
             }
-            is GameState.Won -> _isGameWon.value = true
+            is GameState.Won -> {
+                _wordTextView.value = gameState.wordToGuess
+                _isGameWon.value = true
+            }
         }
     }
 
