@@ -1,5 +1,6 @@
-package com.example.s205444_lykkehjulet
+package com.example.s205444_lykkehjulet.Model
 
+import com.example.s205444_lykkehjulet.R
 import kotlin.random.Random
 
 class GameManager {
@@ -29,7 +30,7 @@ class GameManager {
         return getGameState()
     }
 
-    fun generateUnderscores(word: String) {
+    private fun generateUnderscores(word: String) {
         val sb = StringBuilder()
         word.forEach { char ->
             if (char == '/') {
@@ -41,7 +42,7 @@ class GameManager {
         underscoreWord = sb.toString()
     }
 
-    fun spinWheel() : GameState{
+    fun spinWheel() : GameState {
 
         val randomInt = Random.nextInt(EnumFortunes.values().size)
         val fortune = EnumFortunes.values()[randomInt]
@@ -52,32 +53,42 @@ class GameManager {
             EnumFortunes.BANKRUPT -> {
                 points = 0
                 isWheelSpun = false
-                return GameState.Running(lettersUsed,underscoreWord,drawable,lives,points,
-                    false, EnumFortunes.BANKRUPT.displayText, 0)
+                return GameState.Running(
+                    lettersUsed, underscoreWord, drawable, lives, points,
+                    false, EnumFortunes.BANKRUPT.displayText, 0
+                )
             }
             EnumFortunes.EXTRA_TURN -> {
                 lives += 1
                 isWheelSpun = false
-                return GameState.Running(lettersUsed,underscoreWord,drawable, lives,points,
-                    false,EnumFortunes.EXTRA_TURN.displayText, 0)
+                return GameState.Running(
+                    lettersUsed, underscoreWord, drawable, lives, points,
+                    false, EnumFortunes.EXTRA_TURN.displayText, 0
+                )
             }
             EnumFortunes.MISS_TURN -> {
                 lives -= 1
                 isWheelSpun = false
-                return GameState.Running(lettersUsed,underscoreWord,drawable, lives,points,
-                    false,EnumFortunes.MISS_TURN.displayText, 0)
+                return GameState.Running(
+                    lettersUsed, underscoreWord, drawable, lives, points,
+                    false, EnumFortunes.MISS_TURN.displayText, 0
+                )
             }
             EnumFortunes.HUNDRED -> {
                 potentialPoints = 100
                 isWheelSpun = true
-                return GameState.Running(lettersUsed,underscoreWord,drawable,lives,points,
-                    true, EnumFortunes.HUNDRED.displayText, potentialPoints)
+                return GameState.Running(
+                    lettersUsed, underscoreWord, drawable, lives, points,
+                    true, EnumFortunes.HUNDRED.displayText, potentialPoints
+                )
             }
             EnumFortunes.THOUSAND -> {
                 potentialPoints = 1000
                 isWheelSpun = true
-                return GameState.Running(lettersUsed,underscoreWord,drawable,lives,points,
-                    true, EnumFortunes.THOUSAND.displayText, potentialPoints)
+                return GameState.Running(
+                    lettersUsed, underscoreWord, drawable, lives, points,
+                    true, EnumFortunes.THOUSAND.displayText, potentialPoints
+                )
             }
 
             else -> {}
@@ -89,7 +100,16 @@ class GameManager {
     fun play(letter: Char): GameState {
         if (lettersUsed.contains(letter)) {
             points += potentialPoints
-            return GameState.Running(lettersUsed, underscoreWord, drawable, lives, points, isWheelSpun, fortuneText, potentialPoints)
+            return GameState.Running(
+                lettersUsed,
+                underscoreWord,
+                drawable,
+                lives,
+                points,
+                isWheelSpun,
+                fortuneText,
+                potentialPoints
+            )
         }
 
         lettersUsed += letter
@@ -144,10 +164,28 @@ class GameManager {
         }
 
         drawable = getHangmanDrawable()
-        return GameState.Running(lettersUsed, underscoreWord, drawable, lives, points, isWheelSpun, fortuneText, potentialPoints)
+        return GameState.Running(
+            lettersUsed,
+            underscoreWord,
+            drawable,
+            lives,
+            points,
+            isWheelSpun,
+            fortuneText,
+            potentialPoints
+        )
     }
-    fun setIsWheelSpun(): GameState{
+    fun setIsWheelSpun(): GameState {
         isWheelSpun = false
-        return GameState.Running(lettersUsed, underscoreWord, drawable, lives, points, isWheelSpun, fortuneText, potentialPoints)
+        return GameState.Running(
+            lettersUsed,
+            underscoreWord,
+            drawable,
+            lives,
+            points,
+            isWheelSpun,
+            fortuneText,
+            potentialPoints
+        )
     }
 }

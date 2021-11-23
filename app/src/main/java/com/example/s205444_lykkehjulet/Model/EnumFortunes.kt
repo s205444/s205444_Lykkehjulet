@@ -1,4 +1,4 @@
-package com.example.s205444_lykkehjulet
+package com.example.s205444_lykkehjulet.Model
 
 enum class EnumFortunes(val points : Int, val displayText : String) {
     THOUSAND(1000, "1000"),

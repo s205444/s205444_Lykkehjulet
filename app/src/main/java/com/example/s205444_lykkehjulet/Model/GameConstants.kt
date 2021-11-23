@@ -1,4 +1,4 @@
-package com.example.s205444_lykkehjulet
+package com.example.s205444_lykkehjulet.Model
 
 
 object GameConstants {
