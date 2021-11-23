@@ -17,8 +17,15 @@ class SharedViewModel : ViewModel() {
     private val _isGameLost = MutableLiveData<Boolean>()
     private val _isGameWon = MutableLiveData<Boolean>()
     private val _isWheelSpun = MutableLiveData<Boolean>()
+    val wordTextView: LiveData<String> = _wordTextView
+
+    private val _wordToGuess = MutableLiveData<String>()
 
     private val gameManager = GameManager()
+
+    fun wordToGuess() : LiveData<String>{
+        return _wordToGuess
+    }
 
     fun isWheelSpun() : LiveData<Boolean>{
         return _isWheelSpun
@@ -75,7 +82,7 @@ class SharedViewModel : ViewModel() {
     private fun updateData(gameState: GameState) {
         when (gameState) {
             is GameState.Lost -> {
-                _wordTextView.value = gameState.wordToGuess
+                _wordToGuess.value = gameState.wordToGuess
                 _isGameLost.value = true
             }
             is GameState.Running -> {
@@ -87,7 +94,7 @@ class SharedViewModel : ViewModel() {
                 _isWheelSpun.value = gameState.isWheelSpun
             }
             is GameState.Won -> {
-                _wordTextView.value = gameState.wordToGuess
+                _wordToGuess.value = gameState.wordToGuess
                 _isGameWon.value = true
             }
         }

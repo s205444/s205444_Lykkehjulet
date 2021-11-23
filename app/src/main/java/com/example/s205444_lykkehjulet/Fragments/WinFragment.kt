@@ -6,27 +6,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.s205444_lykkehjulet.R
+import com.example.s205444_lykkehjulet.ViewHolders.SharedViewModel
+import com.example.s205444_lykkehjulet.databinding.WinFragmentBinding
 
 class WinFragment : Fragment() {
 
-    private lateinit var newGameButton: Button
+    private var _binding: WinFragmentBinding? = null
+    private val binding get() = _binding!!
+
+    private val viewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.win_fragment, container, false)
-    }
+    ): View {
+        _binding = WinFragmentBinding.inflate(inflater, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        newGameButton = view.findViewById(R.id.startNewGameButton)
+        viewModel.points().observe(viewLifecycleOwner, Observer {
+            binding.scoreTextView.text = "${getString(R.string.number_of_points)} ${it.toString()}"
+        })
 
-        newGameButton.setOnClickListener {
-            findNavController().navigate(R.id.GameFragment)
-        }
+        return binding.root
     }
 
 

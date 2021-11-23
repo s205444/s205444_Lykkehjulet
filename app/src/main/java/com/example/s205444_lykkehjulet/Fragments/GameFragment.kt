@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.children
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.s205444_lykkehjulet.R
@@ -28,6 +29,8 @@ class GameFragment : Fragment() {
 
     private var isWheelSpun : Boolean = false
 
+    private val viewModel: SharedViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +41,7 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
+        //val viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
 
         lifeView            = view.findViewById(R.id.livesTextView)
         wordTextView        =  view.findViewById(R.id.wordTextView)
