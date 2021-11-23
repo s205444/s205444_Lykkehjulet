@@ -28,6 +28,7 @@ class GameFragment : Fragment() {
     private lateinit var spinResultsTextView : TextView
 
     private var isWheelSpun : Boolean = false
+    private var isGamePaused : Boolean = false
 
     private val viewModel: SharedViewModel by activityViewModels()
 
@@ -41,7 +42,6 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //val viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
 
         lifeView            = view.findViewById(R.id.livesTextView)
         wordTextView        =  view.findViewById(R.id.wordTextView)
@@ -55,7 +55,7 @@ class GameFragment : Fragment() {
         newGameButton.setOnClickListener {
             viewModel.startNewGame()
         }
-        spinWheelButton.setOnClickListener{ viewModel.spinWheel()}
+
 
 
         //viewModel.startNewGame()
@@ -79,6 +79,14 @@ class GameFragment : Fragment() {
         viewModel.isWheelSpun().observe(viewLifecycleOwner,
             Observer { isWheelSpun = it })
 
+        viewModel.isGamePaused().observe(viewLifecycleOwner,
+            Observer { isGamePaused = it  })
+
+        spinWheelButton.setOnClickListener{
+            if(!isGamePaused){
+                viewModel.spinWheel()}
+        }
+
         lettersLayout.children.forEach { letterView ->
             if (letterView is TextView) {
                 letterView.setOnClickListener {
@@ -92,13 +100,15 @@ class GameFragment : Fragment() {
         }
 
         viewModel.isGameLost().observe(viewLifecycleOwner, Observer {
-            if(it){
+            if(it && !isGamePaused){
+                viewModel.pauseGame()
                 findNavController().navigate(R.id.action_GameFragment_to_LoseFragment)
             }
         })
 
         viewModel.isGameWon().observe(viewLifecycleOwner, Observer {
-            if(it){
+            if(it && !isGamePaused){
+                viewModel.pauseGame()
                 findNavController().navigate(R.id.action_game_to_winFragment)
             }
         })

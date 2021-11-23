@@ -38,7 +38,7 @@
             android:id="@+id/scoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/points"
+            android:text="@string/number_of_points"
             app:layout_constraintBottom_toTopOf="@+id/startNewGameButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

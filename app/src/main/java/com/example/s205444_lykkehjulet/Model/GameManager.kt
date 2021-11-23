@@ -9,7 +9,6 @@ class GameManager {
     private lateinit var underscoreWord: String
     private lateinit var wordToGuess: String
     private var lives = 1
-    private var currentTries = 0
     private var points: Int = 0
     private var isWheelSpun: Boolean = false
     private var fortuneText: String = ""
@@ -17,7 +16,7 @@ class GameManager {
 
     fun startNewGame(): GameState {
         lettersUsed = ""
-        currentTries = 0
+
         lives = 1
         isWheelSpun = false
         fortuneText = ""
@@ -160,14 +159,6 @@ class GameManager {
     }
     fun setIsWheelSpun(): GameState {
         isWheelSpun = false
-        return GameState.Running(
-            lettersUsed,
-            underscoreWord,
-            lives,
-            points,
-            isWheelSpun,
-            fortuneText,
-            potentialPoints
-        )
+        return getGameState()
     }
 }

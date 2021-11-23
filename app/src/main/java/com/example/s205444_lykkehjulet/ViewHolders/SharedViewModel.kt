@@ -3,10 +3,8 @@ package com.example.s205444_lykkehjulet.ViewHolders
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.navigation.fragment.findNavController
 import com.example.s205444_lykkehjulet.Model.GameManager
 import com.example.s205444_lykkehjulet.Model.GameState
-import com.example.s205444_lykkehjulet.R
 
 class SharedViewModel : ViewModel() {
     private val _lives = MutableLiveData<Int>()
@@ -17,11 +15,14 @@ class SharedViewModel : ViewModel() {
     private val _isGameLost = MutableLiveData<Boolean>()
     private val _isGameWon = MutableLiveData<Boolean>()
     private val _isWheelSpun = MutableLiveData<Boolean>()
-    val wordTextView: LiveData<String> = _wordTextView
-
     private val _wordToGuess = MutableLiveData<String>()
+    private val _isGamePaused = MutableLiveData<Boolean>()
 
     private val gameManager = GameManager()
+
+    fun isGamePaused() : LiveData<Boolean>{
+        return _isGamePaused
+    }
 
     fun wordToGuess() : LiveData<String>{
         return _wordToGuess
@@ -79,6 +80,10 @@ class SharedViewModel : ViewModel() {
         updateData(gameState)
     }
 
+    fun pauseGame(){
+        _isGamePaused.value = true
+    }
+
     private fun updateData(gameState: GameState) {
         when (gameState) {
             is GameState.Lost -> {
@@ -92,6 +97,9 @@ class SharedViewModel : ViewModel() {
                 _points.value = gameState.points
                 _spinMessage.value = gameState.fortuneResult
                 _isWheelSpun.value = gameState.isWheelSpun
+                _isGameLost.value = false
+                _isGameWon.value = false
+                _isGamePaused.value = false
             }
             is GameState.Won -> {
                 _wordToGuess.value = gameState.wordToGuess
