@@ -23,4 +23,10 @@
     <string name="number_of_points">Points: </string>
     <string name="lives">Lives:</string>
     <string name="Word_to_guess">Word to guess:</string>
+    <string name="Category1">Europe</string>
+    <string name="Category2">Oceania</string>
+    <string name="Category3">North America</string>
+    <string name="Category4">South America</string>
+    <string name="Category5">Africa</string>
+    <string name="Category6">Asia</string>
 </resources>

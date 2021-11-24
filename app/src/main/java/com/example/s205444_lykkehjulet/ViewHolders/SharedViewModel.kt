@@ -89,6 +89,8 @@ class SharedViewModel : ViewModel() {
             is GameState.Lost -> {
                 _wordToGuess.value = gameState.wordToGuess
                 _isGameLost.value = true
+                _lettersUsed.value = gameState.lettersUsed
+                _lives.value = gameState.lives
             }
             is GameState.Running -> {
                 _wordTextView.value = gameState.underscoreWord
@@ -104,6 +106,8 @@ class SharedViewModel : ViewModel() {
             is GameState.Won -> {
                 _wordToGuess.value = gameState.wordToGuess
                 _isGameWon.value = true
+                _lettersUsed.value = gameState.lettersUsed
+                _lives.value = gameState.lives
             }
         }
     }

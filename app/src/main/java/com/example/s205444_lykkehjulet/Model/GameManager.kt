@@ -139,11 +139,11 @@ class GameManager {
 
     fun getGameState(): GameState {
         if (underscoreWord.equals(wordToGuess, true)) {
-            return GameState.Won(wordToGuess)
+            return GameState.Won(wordToGuess, lives, lettersUsed)
         }
 
         if (lives == 0) {
-            return GameState.Lost(wordToGuess)
+            return GameState.Lost(wordToGuess, lives, lettersUsed)
         }
 
 

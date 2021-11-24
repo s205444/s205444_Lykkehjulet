@@ -12,6 +12,13 @@ sealed class GameState {
         val potentialPoints : Int
         ) : GameState()
 
-    class Lost(val wordToGuess: String) : GameState()
-    class Won(val wordToGuess: String) : GameState()
+    class Lost(
+        val wordToGuess: String,
+        val lives: Int,
+        val lettersUsed: String
+        ) : GameState()
+
+    class Won(val wordToGuess: String,
+              val lives: Int,
+              val lettersUsed: String) : GameState()
 }

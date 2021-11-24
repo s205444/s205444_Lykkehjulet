@@ -1,6 +1,5 @@
 package com.example.s205444_lykkehjulet.Fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,8 +12,11 @@ import androidx.core.view.children
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
+import com.example.s205444_lykkehjulet.Adapter.ItemAdapter
 import com.example.s205444_lykkehjulet.R
 import com.example.s205444_lykkehjulet.ViewHolders.SharedViewModel
+import com.example.s205444_lykkehjulet.data.Datasource
 
 class GameFragment : Fragment() {
 
@@ -52,14 +54,17 @@ class GameFragment : Fragment() {
         spinResultsTextView = view.findViewById(R.id.spinResultsTextView)
         spinWheelButton     = view.findViewById(R.id.spinWheelButton)
 
+        spinWheelButton.visibility = View.GONE
+
         newGameButton.setOnClickListener {
             viewModel.startNewGame()
+            spinWheelButton.visibility = View.VISIBLE
+            lettersLayout.children.forEach { letterView ->
+                if (letterView is TextView) {
+                    letterView.visibility = View.VISIBLE
+                }
+            }
         }
-
-
-
-        //viewModel.startNewGame()
-
 
         viewModel.lives().observe(viewLifecycleOwner,
             Observer { lifeView.text = "${getString(R.string.lives)} ${it.toString()}" })
@@ -83,19 +88,21 @@ class GameFragment : Fragment() {
             Observer { isGamePaused = it  })
 
         spinWheelButton.setOnClickListener{
-            if(!isGamePaused){
+            if(!isGamePaused && !isWheelSpun){
                 viewModel.spinWheel()}
         }
 
         lettersLayout.children.forEach { letterView ->
             if (letterView is TextView) {
                 letterView.setOnClickListener {
-                            if(this.isWheelSpun) {
+                            if(this.isWheelSpun && !isGamePaused) {
                                 viewModel.chooseLetter(letterView.text[0])
                                 letterView.visibility = View.GONE
                                 viewModel.setIsWheelSpun()
                             }
                 }
+                if(isGamePaused)
+                    letterView.visibility = View.GONE
             }
         }
 
@@ -112,5 +119,14 @@ class GameFragment : Fragment() {
                 findNavController().navigate(R.id.action_game_to_winFragment)
             }
         })
+
+        val myDataset = Datasource().loadCategories()
+
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.adapter = ItemAdapter(this, myDataset)
+
+        // Use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true)
     }
 }

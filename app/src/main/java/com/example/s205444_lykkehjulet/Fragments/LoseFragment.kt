@@ -32,6 +32,10 @@ class LoseFragment : Fragment() {
             binding.scoreTextView.text = "${getString(R.string.Word_to_guess)} ${it.toString()}"
         })
 
+        binding.startNewGameButton.setOnClickListener {
+            findNavController().navigate(R.id.action_LoseFragment_to_GameFragment)
+        }
+
         return binding.root
     }
 }

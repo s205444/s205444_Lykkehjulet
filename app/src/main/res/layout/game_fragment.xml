@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/wordTextView"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </FrameLayout>
+
     <TextView
         android:id="@+id/livesTextView"
         android:layout_width="wrap_content"
@@ -46,9 +60,11 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:letterSpacing="0.3"
-        android:textSize="26sp"
         android:text="@string/press_start_new_game_to_play"
-        tools:layout_editor_absoluteY="137dp"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.100000024"
         tools:text="_ _ ABCD_ _ _ _ _ _ _" />
 
     <TextView
@@ -85,7 +101,9 @@
             android:layout_height="match_parent"
             android:padding="16dp"
             app:constraint_referenced_ids="a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"
-            app:flow_wrapMode="chain" >
+            app:flow_wrapMode="chain"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
         </androidx.constraintlayout.helper.widget.Flow>
