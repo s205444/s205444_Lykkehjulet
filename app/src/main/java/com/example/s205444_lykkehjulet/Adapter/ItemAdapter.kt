@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.s205444_lykkehjulet.Fragments.GameFragment
+import com.example.s205444_lykkehjulet.Fragments.LoseFragment
 import com.example.s205444_lykkehjulet.R
 import com.example.s205444_lykkehjulet.data.Categories
 
@@ -14,7 +14,7 @@ import com.example.s205444_lykkehjulet.data.Categories
  * Adapter for the [RecyclerView] in [MainActivity]. Displays [Affirmation] data object.
  */
 class ItemAdapter(
-    private val context: GameFragment,
+    private val context: LoseFragment,
     private val dataset: List<Categories>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 

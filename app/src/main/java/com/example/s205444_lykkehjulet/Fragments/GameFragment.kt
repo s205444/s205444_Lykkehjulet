@@ -28,6 +28,7 @@ class GameFragment : Fragment() {
     private lateinit var spinWheelButton: Button
     private lateinit var pointsTextView : TextView
     private lateinit var spinResultsTextView : TextView
+    private lateinit var categoryView : TextView
 
     private var isWheelSpun : Boolean = false
     private var isGamePaused : Boolean = false
@@ -53,11 +54,13 @@ class GameFragment : Fragment() {
         pointsTextView      = view.findViewById(R.id.pointsTextView)
         spinResultsTextView = view.findViewById(R.id.spinResultsTextView)
         spinWheelButton     = view.findViewById(R.id.spinWheelButton)
+        categoryView        = view.findViewById(R.id.categoryTextView)
 
         spinWheelButton.visibility = View.GONE
 
         newGameButton.setOnClickListener {
             viewModel.startNewGame()
+            categoryView.text = getString(R.string.Country)
             spinWheelButton.visibility = View.VISIBLE
             lettersLayout.children.forEach { letterView ->
                 if (letterView is TextView) {
@@ -120,13 +123,6 @@ class GameFragment : Fragment() {
             }
         })
 
-        val myDataset = Datasource().loadCategories()
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.adapter = ItemAdapter(this, myDataset)
-
-        // Use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recyclerView.setHasFixedSize(true)
     }
 }

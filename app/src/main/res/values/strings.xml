@@ -29,4 +29,8 @@
     <string name="Category4">South America</string>
     <string name="Category5">Africa</string>
     <string name="Category6">Asia</string>
+    <string name="categories_in_this_game">Categories in this game:</string>
+    <string name="play_another_game">Play another game</string>
+    <string name="Country">Category: Country</string>
+
 </resources>

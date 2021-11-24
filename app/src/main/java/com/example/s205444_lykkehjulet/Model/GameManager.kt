@@ -8,7 +8,7 @@ class GameManager {
     private var lettersUsed: String = ""
     private lateinit var underscoreWord: String
     private lateinit var wordToGuess: String
-    private var lives = 1
+    private var lives = 5
     private var points: Int = 0
     private var isWheelSpun: Boolean = false
     private var fortuneText: String = ""
