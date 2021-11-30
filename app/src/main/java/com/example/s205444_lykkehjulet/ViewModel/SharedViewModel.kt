@@ -1,4 +1,4 @@
-package com.example.s205444_lykkehjulet.ViewHolders
+package com.example.s205444_lykkehjulet.ViewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

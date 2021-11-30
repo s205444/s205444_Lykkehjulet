@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/GameFragment"
         android:name="com.example.s205444_lykkehjulet.Fragments.GameFragment"
-        android:label="@string/first_fragment_label"
         tools:layout="@layout/game_fragment">
 
         <action
@@ -22,23 +21,18 @@
     <fragment
         android:id="@+id/WinFragment"
         android:name="com.example.s205444_lykkehjulet.Fragments.WinFragment"
-        android:label="@string/second_fragment_label"
         tools:layout="@layout/win_fragment">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/action_WinFragment_to_GameFragment"
             app:destination="@id/GameFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/LoseFragment"
         android:name="com.example.s205444_lykkehjulet.Fragments.LoseFragment"
-        android:label="@string/second_fragment_label"
         tools:layout="@layout/lose_fragment">
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/GameFragment" />
         <action
             android:id="@+id/action_LoseFragment_to_GameFragment"
             app:destination="@id/GameFragment"

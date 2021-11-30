@@ -8,10 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.example.s205444_lykkehjulet.Adapter.ItemAdapter
 import com.example.s205444_lykkehjulet.R
-import com.example.s205444_lykkehjulet.ViewHolders.SharedViewModel
+import com.example.s205444_lykkehjulet.ViewModel.SharedViewModel
 import com.example.s205444_lykkehjulet.data.Datasource
 import com.example.s205444_lykkehjulet.databinding.LoseFragmentBinding
 
@@ -29,7 +28,7 @@ class LoseFragment : Fragment() {
         _binding = LoseFragmentBinding.inflate(inflater, container, false)
 
         viewModel.wordToGuess().observe(viewLifecycleOwner, Observer {
-            binding.scoreTextView.text = "${getString(R.string.Word_to_guess)} ${it.toString()}"
+            binding.scoreTextView.text = "${getString(R.string.Word_to_guess)} $it"
         })
 
         binding.startNewGameButton.setOnClickListener {

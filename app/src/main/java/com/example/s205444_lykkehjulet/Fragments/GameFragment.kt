@@ -12,11 +12,8 @@ import androidx.core.view.children
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
-import com.example.s205444_lykkehjulet.Adapter.ItemAdapter
 import com.example.s205444_lykkehjulet.R
-import com.example.s205444_lykkehjulet.ViewHolders.SharedViewModel
-import com.example.s205444_lykkehjulet.data.Datasource
+import com.example.s205444_lykkehjulet.ViewModel.SharedViewModel
 
 class GameFragment : Fragment() {
 
@@ -70,19 +67,19 @@ class GameFragment : Fragment() {
         }
 
         viewModel.lives().observe(viewLifecycleOwner,
-            Observer { lifeView.text = "${getString(R.string.lives)} ${it.toString()}" })
+            Observer { lifeView.text = "${getString(R.string.lives)} $it" })
 
         viewModel.wordTextView().observe(viewLifecycleOwner,
             Observer { wordTextView.text = it.toString() })
 
         viewModel.lettersUsed().observe(viewLifecycleOwner,
-            Observer { lettersUsedTextView.text = "${getString(R.string.used_letters)} ${it.toString()}" })
+            Observer { lettersUsedTextView.text = "${getString(R.string.used_letters)} $it" })
 
         viewModel.points().observe(viewLifecycleOwner,
-            Observer { pointsTextView.text = "${getString(R.string.number_of_points)} ${it.toString()}" })
+            Observer { pointsTextView.text = "${getString(R.string.number_of_points)} $it" })
 
         viewModel.spinMessage().observe(viewLifecycleOwner,
-            Observer { spinResultsTextView.text = "${getString(R.string.you_spun_this)} ${it.toString()}" })
+            Observer { spinResultsTextView.text = "${getString(R.string.you_spun_this)} $it" })
 
         viewModel.isWheelSpun().observe(viewLifecycleOwner,
             Observer { isWheelSpun = it })

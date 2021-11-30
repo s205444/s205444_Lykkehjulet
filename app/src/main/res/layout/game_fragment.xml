@@ -75,7 +75,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lettersUsedTextView"
-        app:layout_constraintVertical_bias="0.29000002" />
+        app:layout_constraintVertical_bias="0.29000002"
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/lettersLayout"
@@ -102,9 +103,9 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="A"
+            android:text="@string/a"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/b"
@@ -112,9 +113,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="B"
+            android:text="@string/b"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/c"
@@ -122,9 +124,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="C"
+            android:text="@string/c"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/d"
@@ -132,9 +135,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="D"
+            android:text="@string/d"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/e"
@@ -142,9 +146,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="E"
+            android:text="@string/e"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/f"
@@ -152,9 +157,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="F"
+            android:text="@string/f"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/g"
@@ -162,9 +168,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="G"
+            android:text="@string/g"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/h"
@@ -172,9 +179,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="H"
+            android:text="@string/h"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/i"
@@ -182,9 +190,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="I"
+            android:text="@string/i"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/j"
@@ -192,9 +201,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="J"
+            android:text="@string/j"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/k"
@@ -202,9 +212,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="K"
+            android:text="@string/k"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/l"
@@ -212,9 +223,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="L"
+            android:text="@string/l"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/m"
@@ -222,9 +234,12 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="M"
+            android:text="@string/m"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="170dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/n"
@@ -232,9 +247,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="N"
+            android:text="@string/n"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/o"
@@ -242,9 +258,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="O"
+            android:text="@string/o"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/p"
@@ -252,9 +269,12 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="P"
+            android:text="@string/p"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="173dp"
+            tools:layout_editor_absoluteY="170dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/q"
@@ -262,9 +282,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="Q"
+            android:text="@string/q"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/r"
@@ -272,9 +293,12 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="R"
+            android:text="@string/r"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="249dp"
+            tools:layout_editor_absoluteY="170dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/s"
@@ -282,9 +306,10 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="S"
+            android:text="@string/s"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/t"
@@ -292,9 +317,12 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="T"
+            android:text="@string/t"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="322dp"
+            tools:layout_editor_absoluteY="170dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/u"
@@ -302,19 +330,23 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="U"
+            android:text="@string/u"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/v"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="V"
+            android:text="@string/v"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="49dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/w"
@@ -322,51 +354,67 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="W"
+            android:text="@string/w"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="118dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/x"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="X"
+            android:text="@string/x"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+
+            tools:layout_editor_absoluteX="192dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/y"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="Y"
+            android:text="@string/y"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+
+            tools:layout_editor_absoluteX="260dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/z"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             android:background="@color/design_default_color_primary"
             android:paddingHorizontal="10dp"
-            android:text="Z"
+            android:text="@string/z"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+
+            tools:layout_editor_absoluteX="328dp"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/spinWheelButton"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/spin_wheel"
         app:layout_constraintBottom_toTopOf="@+id/newGameButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lettersUsedTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/lettersUsedTextView"
+        app:rippleColor="#9C27B0" />
 
     <TextView
         android:id="@+id/categoryTextView"

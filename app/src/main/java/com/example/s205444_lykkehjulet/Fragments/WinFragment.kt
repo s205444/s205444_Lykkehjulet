@@ -5,12 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.s205444_lykkehjulet.R
-import com.example.s205444_lykkehjulet.ViewHolders.SharedViewModel
+import com.example.s205444_lykkehjulet.ViewModel.SharedViewModel
 import com.example.s205444_lykkehjulet.databinding.WinFragmentBinding
 
 class WinFragment : Fragment() {
@@ -27,8 +26,12 @@ class WinFragment : Fragment() {
         _binding = WinFragmentBinding.inflate(inflater, container, false)
 
         viewModel.points().observe(viewLifecycleOwner, Observer {
-            binding.scoreTextView.text = "${getString(R.string.number_of_points)} ${it.toString()}"
+            binding.scoreTextView.text = "${getString(R.string.number_of_points)} $it"
         })
+
+        binding.startNewGameButton.setOnClickListener {
+            findNavController().navigate(R.id.action_WinFragment_to_GameFragment)
+        }
 
         return binding.root
     }

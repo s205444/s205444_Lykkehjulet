@@ -72,7 +72,7 @@ class GameManager {
                 return getGameState()
             }
             EnumFortunes.HUNDRED -> {
-                potentialPoints = 100
+                potentialPoints = EnumFortunes.HUNDRED.points
                 isWheelSpun = true
                 fortuneText = EnumFortunes.HUNDRED.displayText
                 return GameState.Running(
@@ -81,7 +81,7 @@ class GameManager {
                 )
             }
             EnumFortunes.THOUSAND -> {
-                potentialPoints = 1000
+                potentialPoints = EnumFortunes.HUNDRED.points
                 isWheelSpun = true
                 fortuneText = EnumFortunes.THOUSAND.displayText
                 return GameState.Running(
