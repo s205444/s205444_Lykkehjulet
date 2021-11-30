@@ -1,7 +1,12 @@
 package com.example.s205444_lykkehjulet.Model
 
-import com.example.s205444_lykkehjulet.R
+
 import kotlin.random.Random
+
+/**
+ * @author Lucas Loft Skals
+ * Part of GameManager logic has inspiration from https://www.youtube.com/watch?v=kGGpH7ypxAU&t=82s&ab_channel=UsmaanDeveloper
+ */
 
 class GameManager {
 
