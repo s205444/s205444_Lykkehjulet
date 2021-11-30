@@ -23,5 +23,6 @@ sealed class GameState {
 
     class Won(val wordToGuess: String,
               val lives: Int,
-              val lettersUsed: String) : GameState()
+              val lettersUsed: String,
+                val points: Int) : GameState()
 }

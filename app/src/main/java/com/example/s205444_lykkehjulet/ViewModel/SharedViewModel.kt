@@ -108,6 +108,7 @@ class SharedViewModel : ViewModel() {
                 _isGameWon.value = true
                 _lettersUsed.value = gameState.lettersUsed
                 _lives.value = gameState.lives
+                _points.value = gameState.points
             }
         }
     }

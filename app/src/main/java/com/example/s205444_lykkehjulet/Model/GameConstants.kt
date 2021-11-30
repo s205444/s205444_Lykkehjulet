@@ -7,7 +7,7 @@ object GameConstants {
         "Ireland",
         "Denmark",
         "India",
-        "Morroco",
+        "Morocco",
         "Sweden",
         "Germany",
         "Brazil",

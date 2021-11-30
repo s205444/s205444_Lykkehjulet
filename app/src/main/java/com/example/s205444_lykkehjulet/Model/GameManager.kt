@@ -81,7 +81,7 @@ class GameManager {
                 )
             }
             EnumFortunes.THOUSAND -> {
-                potentialPoints = EnumFortunes.HUNDRED.points
+                potentialPoints = EnumFortunes.THOUSAND.points
                 isWheelSpun = true
                 fortuneText = EnumFortunes.THOUSAND.displayText
                 return GameState.Running(
@@ -89,10 +89,8 @@ class GameManager {
                     true, EnumFortunes.THOUSAND.displayText, potentialPoints
                 )
             }
-
-            else -> {}
         }
-        return getGameState()
+
 
     }
 
@@ -144,7 +142,7 @@ class GameManager {
 
     fun getGameState(): GameState {
         if (underscoreWord.equals(wordToGuess, true)) {
-            return GameState.Won(wordToGuess, lives, lettersUsed)
+            return GameState.Won(wordToGuess, lives, lettersUsed, points)
         }
 
         if (lives == 0) {
