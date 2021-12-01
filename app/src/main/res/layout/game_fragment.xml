@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.GameFragment">
 
-
+    <!--Some inspiration from https://www.youtube.com/watch?v=kGGpH7ypxAU&t=82s&ab_channel=UsmaanDeveloper -->
 
     <TextView
         android:id="@+id/livesTextView"
