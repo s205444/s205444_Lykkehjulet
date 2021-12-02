@@ -32,6 +32,11 @@
     <string name="categories_in_this_game">Categories in this game:</string>
     <string name="play_another_game">Play another game</string>
     <string name="Country">Category: Country</string>
+    <string name="choose_letter">Choose a letter</string>
+<string name="Hundred" >100 \n
+ >>> Choose a letter, then spin</string>
+    <string name="Thousand" >1000 \n
+ >>> Choose a letter, then spin</string>
     <string name="a">A</string>
     <string name="b">B</string>
     <string name="c">C</string>

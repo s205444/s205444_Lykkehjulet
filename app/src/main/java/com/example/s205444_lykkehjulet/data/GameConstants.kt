@@ -1,5 +1,5 @@
-package com.example.s205444_lykkehjulet.Model
-
+package com.example.s205444_lykkehjulet.data
+import com.example.s205444_lykkehjulet.R
 
 object GameConstants {
     val words = listOf(
@@ -15,8 +15,8 @@ object GameConstants {
         "Uruguay",
         "Argentina",
         "Germany",
-        "South Africa",
-        "Papua New Guinea",
+        "South/Africa",
+        "Papua/New/Guinea",
         "Zimbabwe",
         "Norway",
         "Germany",
@@ -27,6 +27,5 @@ object GameConstants {
         "China",
         "Russia",
         "Macedonia",
-
     )
 }

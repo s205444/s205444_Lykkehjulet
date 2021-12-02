@@ -1,6 +1,7 @@
 package com.example.s205444_lykkehjulet.Model
 
 
+import com.example.s205444_lykkehjulet.data.GameConstants
 import kotlin.random.Random
 
 /**
