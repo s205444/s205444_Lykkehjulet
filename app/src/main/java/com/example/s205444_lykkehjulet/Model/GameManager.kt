@@ -22,7 +22,7 @@ class GameManager {
 
     fun startNewGame(): GameState {
         lettersUsed = ""
-
+        points = 0
         lives = 5
         isWheelSpun = false
         fortuneText = ""
